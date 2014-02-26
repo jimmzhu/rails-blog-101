@@ -1,0 +1,25 @@
+# generate stuff
+rails generate model Comment commenter:string body:text post:references
+rails generate model Post title:string text:text
+rails generate controller welcome index
+rails g controller posts
+
+# shows all the routes
+rake routes
+
+# updates/creates databases (default environment: development mode)
+rake db:migrate
+
+# ONLY PUT <%= when you want to return html or something %>
+# if, end, control structures require <% ... %> (NO EQUALS=)
+
+# href parameter can accept either [pathname]_path or controller: [controller]
+# view paths via 'rake routes'
+# if using controller, it will send GET to posts/ ==> posts/index.html.erb
+# Rails uses current controller by default
+<%= link_to 'link-text', new_post_path %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'link-text', controller: 'posts' %>
+
+render( :text => params[:post].inspect )
+render 'new'

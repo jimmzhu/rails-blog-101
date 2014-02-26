@@ -1,0 +1,8 @@
+<p>
+  <% # 'comment' is equivalent to 'post_comment_path(post)' %>
+  <%= link_to 'x', [comment.post, comment],
+            method: :delete,
+            data: { confirm: "Delete #{comment.commenter}'s comment?" } %>
+  <strong><%= comment.commenter %>: </strong>
+  <%= comment.body %>
+</p>

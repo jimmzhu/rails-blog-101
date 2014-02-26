@@ -1,0 +1,22 @@
+<h1>Posts!! Glorious Posts!!!</h1>
+
+<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Home', root_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% # 'post' is equivalent to 'post_path(post)' %>
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= link_to post.title, post %></td>
+    <td><%= post.text %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Delete', post,
+                method: :delete,
+                data: { confirm: "Delete post '#{post.title}'?" } %></td>
+  </tr>
+  <% end %>
+</table>
